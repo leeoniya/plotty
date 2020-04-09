@@ -7,7 +7,8 @@
   "typings": "./dist/uPlot.esm.d.ts",
   "scripts": {
     "build": "rollup -c",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "docker-compose run --rm test",
+    "test:update": "docker-compose run --rm test node ./test/demos.js -u"
   },
   "repository": {
     "type": "git",
@@ -39,9 +40,15 @@
   },
   "homepage": "https://github.com/leeoniya/uPlot#readme",
   "devDependencies": {
+    "canvas": "^2.6.1",
+    "canvas-5-polyfill": "^0.1.5",
+    "jsdom": "^16.2.2",
+    "pixelmatch": "^5.1.0",
+    "pngjs": "^3.4.0",
     "rollup": "^2.3.2",
     "rollup-plugin-buble": "^0.19.8",
     "rollup-plugin-replace": "^2.2.0",
-    "rollup-plugin-terser": "^5.3.0"
+    "rollup-plugin-terser": "^5.3.0",
+    "unfetch": "^4.1.0"
   }
 }

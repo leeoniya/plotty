@@ -1,0 +1,16 @@
+name: Test
+
+on: [push]
+
+jobs:
+    test:
+        runs-on: ubuntu-latest
+
+        steps:
+            - uses: actions/checkout@v2
+            - run: docker-compose run test
+            - uses: actions/upload-artifact@v1
+              if: failure()
+              with:
+                  name: snapshot-diffs
+                  path: ./test/diffs/
