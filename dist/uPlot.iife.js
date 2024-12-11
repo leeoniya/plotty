@@ -4564,8 +4564,13 @@ var uPlot = (function () {
 					if (val != null) {
 						if (ori == 0)
 							x = canOffs[i];
-						else
+						else {
+							if (axis.side === 1 && axis.align === 2)
+								x = can.width;
+							else if (axis.side === 3 && axis.align === 1)
+								x = 0;
 							y = canOffs[i];
+						}
 
 						val = "" + val;
 
